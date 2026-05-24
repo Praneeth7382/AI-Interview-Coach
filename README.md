@@ -54,4 +54,17 @@ Features:
 
 Screenshot:
 
-![V3](screenshots/v3/voice_interview.png)
+## Home Screen
+
+![V3][Home Screen](screenshots/v3_home_screen.png)
+
+## Inputs
+
+![V3][Inputs](screenshots/v3_inputs.png)
+
+
+## Generated Output
+
+![V3][Generated Output](screenshots/v3_Generated_output.png)
+
+---
