@@ -9,7 +9,18 @@ Features:
 
 Screenshot:
 
-![V1](screenshots/v1/terminal_output.png)
+## Home Screen
+
+![V2][Home Screen](screenshots/v1_home_screen.png)
+
+## Inputs
+
+![V1][Inputs](screenshots/v1_Inputs.png)
+
+
+## Generated Output
+
+![V1][Generated Output](screenshots/v1_Generated_output.png)
 
 ---
 
@@ -24,11 +35,11 @@ Screenshot:
 
 ## Home Screen
 
-![V2][Home Screen](screenshots/home_screen.png)
+![V2][Home Screen](screenshots/v2_home_screen.png)
 
 ## Generated Output
 
-![V2][Generated Output](screenshots/generated_output.png)
+![V2][Generated Output](screenshots/v2_generated_output.png)
 
 ---
 
