@@ -1,3 +1,4 @@
+import customtkinter as ctk
 from groq import Groq
 from dotenv import load_dotenv
 import os
@@ -8,45 +9,115 @@ client = Groq(
     api_key=os.getenv("GROQ_API_KEY")
 )
 
-print("\n===== AI Interview Coach =====\n")
+ctk.set_appearance_mode("dark")
+ctk.set_default_color_theme("blue")
 
-role = input("Enter job role: ")
-experience = input("Enter experience level: ")
-skills = input("Enter your skills: ")
+app = ctk.CTk()
+app.geometry("900x700")
+app.title("AI Interview Coach")
 
-prompt = f"""
-You are a professional technical interviewer with 10 years of experience.
 
-Generate:
+title = ctk.CTkLabel(
+    app,
+    text="AI Interview Coach",
+    font=("Arial",28,"bold")
+)
+title.pack(pady=15)
 
-1. Five technical interview questions
-2. Five HR questions
-3. Sample answers
-4. Improvement tips
 
-Candidate details:
+role_entry = ctk.CTkEntry(
+    app,
+    width=500,
+    placeholder_text="Enter Job Role"
+)
+role_entry.pack(pady=10)
 
-Role: {role}
-Experience: {experience}
-Skills: {skills}
 
-Requirements:
+experience_entry = ctk.CTkEntry(
+    app,
+    width=500,
+    placeholder_text="Enter Experience Level"
+)
+experience_entry.pack(pady=10)
 
-- Questions must match role and skills
-- Avoid generic questions
-- Keep answers concise
-- Use clean headings
-"""
 
-response = client.chat.completions.create(
-    model="llama-3.3-70b-versatile",
-    messages=[
-        {
-            "role":"user",
-            "content":prompt
-        }
-    ]
+skills_entry = ctk.CTkEntry(
+    app,
+    width=500,
+    placeholder_text="Enter Skills"
+)
+skills_entry.pack(pady=10)
+
+
+textbox = ctk.CTkTextbox(
+    app,
+    width=800,
+    height=350
+)
+textbox.pack(pady=20)
+
+
+def generate_questions():
+
+    role = role_entry.get()
+    experience = experience_entry.get()
+    skills = skills_entry.get()
+
+    prompt = f"""
+    You are a professional interviewer with 10 years experience.
+
+    Generate:
+
+    1. Five technical questions
+    2. Three HR questions
+    3. Sample answers
+    4. Improvement tips
+
+    Candidate details:
+
+    Role: {role}
+    Experience: {experience}
+    Skills: {skills}
+
+    Requirements:
+    - Match role and skills
+    - Avoid generic questions
+    - Use headings
+    """
+
+    textbox.delete("1.0","end")
+
+    textbox.insert(
+        "end",
+        "Generating...\n\n"
+    )
+
+    response = client.chat.completions.create(
+        model="llama-3.1-8b-instant",
+        messages=[
+            {
+                "role":"user",
+                "content":prompt
+            }
+        ]
+    )
+
+    result = response.choices[0].message.content
+
+    textbox.delete("1.0","end")
+
+    textbox.insert(
+        "end",
+        result
+    )
+
+
+button = ctk.CTkButton(
+    app,
+    text="Generate Interview Questions",
+    command=generate_questions
 )
 
-print("\n")
-print(response.choices[0].message.content)
+button.pack(pady=10)
+
+app.mainloop()
