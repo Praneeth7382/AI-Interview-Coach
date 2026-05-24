@@ -1,21 +1,46 @@
-# AI Interview Coach
+# Project Evolution
 
-Desktop-based AI interview preparation application built using Python, Groq API, and CustomTkinter.
+## Version 1 — Terminal Application
 
-## Features
+Features:
+- Generated interview questions
+- Generated sample answers
+- Used Groq API
 
-- Role-specific technical questions
-- HR interview questions
-- Sample answers
-- Improvement suggestions
+Screenshot:
+
+![V1](screenshots/v1/terminal_output.png)
+
+---
+
+## Version 2 — Desktop GUI
+
+Features:
 - Interactive desktop interface
+- Input fields
+- Better user experience
 
-## Screenshots
+Screenshot:
 
-### Home Screen
+## Home Screen
 
-![Home Screen](screenshots/home_screen.png)
+![V2][Home Screen](screenshots/home_screen.png)
 
-### Generated Output
+## Generated Output
 
-![Generated Output](screenshots/generated_output.png)
+![V2][Generated Output](screenshots/generated_output.png)
+
+---
+
+## Version 3 — Smart AI Platform
+
+Features:
+- Resume analysis
+- Voice interview simulation
+- PDF reports
+- Question scoring
+- Database history
+
+Screenshot:
+
+![V3](screenshots/v3/voice_interview.png)
